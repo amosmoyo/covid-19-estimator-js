@@ -2,20 +2,19 @@ const days = (periodType, timeToElapse) => {
   let day;
   const time = timeToElapse;
   switch (periodType) {
-    case 'months':
+      case 'months':
       day = time * 30;
       break;
-    case 'weeks':
+      case 'weeks':
       day = time * 7;
       break;
-    default:
-    day = time;   
-  }
-
-  const ans = 2 ** (Math.floor((day / 3)));
-  return ans;
-};
-
+      default:
+      day = time;   
+  };
+    const ans = 2 ** (Math.floor((day / 3)));
+    return ans;
+}
+  
 const impact = {};
 const severeImpact = {};
 
