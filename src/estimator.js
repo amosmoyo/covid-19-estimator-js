@@ -3,14 +3,14 @@ const days = (periodType, timeToElapse) => {
   const time = timeToElapse;
   switch (periodType) {
     /* eslint-disable indent */
-    case 'months':
-    day = time * 30;
-    break;
-    case 'weeks':
-    day = time * 7;
-    break;
-    default:
-    day = time;   
+      case 'months':
+      day = time * 30;
+      break;
+      case 'weeks':
+      day = time * 7;
+      break;
+      default:
+      day = time;   
   }
 
   const ans = 2 ** (Math.floor((day / 3)));
