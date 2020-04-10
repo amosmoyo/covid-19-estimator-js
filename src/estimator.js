@@ -2,14 +2,14 @@ const days = (periodType, timeToElapse) => {
   let day;
   const time = timeToElapse;
   switch (periodType) {
-    case 'months':
-    day = time * 30;
-    break;
-    case 'weeks':
-    day = time * 7;
-    break;
-    default:
-    day = time;   
+      case 'months':
+      day = time * 30;
+      break;
+      case 'weeks':
+      day = time * 7;
+      break;
+      default:
+      day = time;   
   }
   const ans = 2 ** (Math.floor((day / 3)));
   return ans;
@@ -24,7 +24,7 @@ const hospitalBeds = (severe, beds) => {
   const accualCapacity = Math.floor(0.925 * beds);
 
   const remainBedActualCapity = Math.floor(accualCapacity - occupiedBeds);
-  
+
   const requiredBeds = severe - remainBedActualCapity;
   return requiredBeds;
 };
