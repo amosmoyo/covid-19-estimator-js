@@ -3,18 +3,18 @@ const days = (periodType, timeToElapse) => {
   const time = timeToElapse;
   switch (periodType) {
     case 'months':
-      day = time * 30
-      break;
-      case 'weeks':
-      day = time * 7;
-      break;
-      default:
-      day = time;   
-  };
-    const ans = 2 ** (Math.floor((day / 3)));
-    return ans;
-}
-  
+    day = time * 30;
+    break;
+    case 'weeks':
+    day = time * 7;
+    break;
+    default:
+    day = time;   
+  }
+  const ans = 2 ** (Math.floor((day / 3)));
+  return ans;
+};
+ 
 const impact = {};
 const severeImpact = {};
 
@@ -44,7 +44,7 @@ const estimator = (val) => {
 
   impact.casesForICUByRequestedTime = Math.floor(0.05 * impact.infectionsByRequestedTime);
   impact.casesForVentilatorsByRequestedTime = Math.floor(0.02 * impact.infectionsByRequestedTime);
-  
+
   impact.dollarsInFlight = incomeLost(
     impact.infectionsByRequestedTime,
     val.timeToElapse,
