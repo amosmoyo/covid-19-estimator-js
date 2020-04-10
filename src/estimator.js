@@ -18,8 +18,9 @@ const days = (periodType, timeToElapse) => {
   
 };
 
-const impact = new Object();
-const severeImpact = new Object;
+const impact, severeImpact;
+impact = new Object();
+severeImpact = new Object();
 
 const hospitalBeds = (severe, beds) => {
   const occupiedBeds = Math.floor(0.65 * beds);
