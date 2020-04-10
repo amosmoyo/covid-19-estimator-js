@@ -9,7 +9,7 @@ const days = (periodType, timeToElapse) => {
       case 'weeks':
       day = time * 7;
       break;
-      case 'days':
+      default:
       day = time;   
   }
 
