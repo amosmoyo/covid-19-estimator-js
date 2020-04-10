@@ -44,11 +44,12 @@ const estimator = (val) => {
 
   impact.casesForICUByRequestedTime = Math.floor(0.05 * impact.infectionsByRequestedTime);
   impact.casesForVentilatorsByRequestedTime = Math.floor(0.02 * impact.infectionsByRequestedTime);
+  
   impact.dollarsInFlight = incomeLost(
     impact.infectionsByRequestedTime,
     val.timeToElapse,
     val.region.avgDailyIncomeInUSD
-  )
+  );
 
   severeImpact.currentlyInfected = val.reportedCases * 50;
   severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * days(
