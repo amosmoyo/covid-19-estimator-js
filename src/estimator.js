@@ -1,6 +1,6 @@
 const days = (periodType,timeToElapse) => {
   let day;
-  let time = timeToElapse;
+  const time = timeToElapse;
   switch (periodType) {
     case 'months':
       day = time * 30;
@@ -11,7 +11,7 @@ const days = (periodType,timeToElapse) => {
     default:
       day = time   
   }
-  let ans = Math.pow(2, Math.floor((day/3)));
+  const ans = Math.pow(2, Math.floor((day/3)));
   return ans;
 };
 
@@ -19,12 +19,12 @@ const impact = {};
 const severeImpact = {};
 
 const estimator = (val) => {
-  let input = val;
-  let reportedCases = input.reportedCases;
-  let time = input.timeToElapse;
-  let period = input.periodType;
-  let  beds = input.totalHospitalBeds;
-  let income = input.region.avgDailyIncomeInUSD;
+  const input = val;
+  const reportedCases = input.reportedCases;
+  const time = input.timeToElapse;
+  const period = input.periodType;
+  const beds = input.totalHospitalBeds;
+  const income = input.region.avgDailyIncomeInUSD;
   
   impact.currentlyInfected = reportedCases * 10;
   impact.infectionsByRequestedTime = impact.currentlyInfected * days(period,time);
@@ -37,7 +37,7 @@ const estimator = (val) => {
     time,
     income
   )
-  
+
   severeImpact.currentlyInfected = reportedCases * 50;
   severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * days(period, time);
   severeImpact.severeCasesByRequestedTime = Math.floor(0.15 * severeImpact.infectionsByRequestedTime);
@@ -53,10 +53,10 @@ const estimator = (val) => {
 }
 
 const hospitalBeds = (severe, beds) => {
-   let occupiedBeds = Math.floor(0.65 * beds);
-   let accualCapacity = Math.floor(0.925 * beds );
-   let remainBedActualCapity = Math.floor(accualCapacity - occupiedBeds);
-   let requiredBeds = severe - remainBedActualCapity;
+   const occupiedBeds = Math.floor(0.65 * beds);
+   const accualCapacity = Math.floor(0.925 * beds );
+   const remainBedActualCapity = Math.floor(accualCapacity - occupiedBeds);
+   const requiredBeds = severe - remainBedActualCapity;
    return requiredBeds;
 }
 
