@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 const days = (periodType, timeToElapse) => {
   let day;
   const time = timeToElapse;
