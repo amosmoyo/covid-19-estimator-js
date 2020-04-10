@@ -14,7 +14,7 @@ const days = (periodType, timeToElapse) => {
   const ans = 2 ** (Math.floor((day / 3)));
   return ans;
 };
- 
+
 const impact = {};
 const severeImpact = {};
 
@@ -27,11 +27,9 @@ const hospitalBeds = (severe, beds) => {
   
   const requiredBeds = severe - remainBedActualCapity;
   return requiredBeds;
-}
+};
 
-const incomeLost = (infected, time, income) => {
-  return (infected * time * income).toFixed(2);
-}
+const incomeLost = (infected, time, income) => ((infected * time * income).toFixed(2));
 
 const estimator = (val) => {
   impact.currentlyInfected = val.reportedCases * 10;
