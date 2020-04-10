@@ -1,8 +1,8 @@
-/* eslint-disable indent */
 const days = (periodType, timeToElapse) => {
   let day;
   const time = timeToElapse;
   switch (periodType) {
+    /* eslint-disable indent */
       case 'months':
       day = time * 30;
       break;
