@@ -3,7 +3,7 @@ const impact = {
 const severeImpact = {
 };
 
-function days (periodType, timeToElapse){
+function days(periodType, timeToElapse){
   let day;
   const time = timeToElapse;
   switch (periodType) {
@@ -61,21 +61,23 @@ const estimator = (val) => {
 
   );
   severeImpact.severeCasesByRequestedTime = Math.floor(
-  0.15 * severeImpact.infectionsByRequestedTime);
-
+  0.15 * severeImpact.infectionsByRequestedTime
+  );
   severeImpact.hospitalBedsByRequestedTime = hospitalBeds(
   severeImpact.severeCasesByRequestedTime, val.totalHospitalBeds
   );
   severeImpact.casesForICUByRequestedTime = Math.floor(
-  0.05 * severeImpact.infectionsByRequestedTime);
+  0.05 * severeImpact.infectionsByRequestedTime
+  );
   severeImpact.casesForVentilatorsByRequestedTime = Math.floor(
-  0.02 * severeImpact.infectionsByRequestedTime);
+  0.02 * severeImpact.infectionsByRequestedTime
+  );
   severeImpact.dollarsInFlight = incomeLost(
     severeImpact.infectionsByRequestedTime,
     val.timeToElapse,
     val.region.avgDailyIncomeInUSD
   );
-}
+};
 
 const covid19ImpactEstimator = (data) => {
     estimator(data);
@@ -83,8 +85,8 @@ const covid19ImpactEstimator = (data) => {
     return {
         data,
         impact,
-        severeImpact,
-    }
+        severeImpact
+    };
 }
 
 export default covid19ImpactEstimator;
