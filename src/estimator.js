@@ -7,7 +7,6 @@ function days(periodType, timeToElapse){
   let day;
   const time = timeToElapse;
   switch (periodType) {
-    /* eslint-disable indent */
       case 'months':
       day = time * 30;
       break;
@@ -15,7 +14,7 @@ function days(periodType, timeToElapse){
       day = time * 7;
       break;
       default:
-      day = time; //  
+      day = time;
   }
   const ans = (2 ** (Math.floor((day / 3))));
   return ans;
@@ -87,6 +86,6 @@ const covid19ImpactEstimator = (data) => {
         impact,
         severeImpact
     };
-}
+};
 
 export default covid19ImpactEstimator;
