@@ -3,7 +3,7 @@ const impact = {
 const severeImpact = {
 };
 
-function days(periodType, timeToElapse){
+function days (periodType, timeToElapse) {
   let day;
   const time = timeToElapse;
   switch (periodType) {
@@ -16,12 +16,12 @@ function days(periodType, timeToElapse){
       break;
       default:
       day = time; //  
-  };
-  const ans = (2 ** (Math.floor((day / 3))))
+  }
+  const ans = (2 ** (Math.floor((day / 3))));
   return ans;
-};
+}
 
-function hospitalBeds(severe, beds){
+function hospitalBeds (severe, beds) {
   const occupiedBeds = Math.floor(0.65 * beds);
 
   const accualCapacity = Math.floor(0.925 * beds);
@@ -30,7 +30,7 @@ function hospitalBeds(severe, beds){
 
   const requiredBeds = (severe - remainBedActualCapity);
   return requiredBeds;
-};
+}
 
 const incomeLost = (infected, time, income) => ((infected * time * income).toFixed(2));
 
