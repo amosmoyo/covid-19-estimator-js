@@ -17,12 +17,9 @@ const days = (periodType, timeToElapse) => {
       default:
       day = time; //  
   };
-  const ans = 2 ** (Math.floor((day / 3)));
-
+  const ans = (2 ** (Math.floor((day / 3))));
   return ans;
-  
 };
-
 const hospitalBeds = (severe, beds) => {
   const occupiedBeds = Math.floor(0.65 * beds);
 
