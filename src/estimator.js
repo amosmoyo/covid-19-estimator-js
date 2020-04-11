@@ -37,7 +37,9 @@ const incomeLost = (infected, time, income) => ((infected * time * income).toFix
 const estimator = (val) => {
   impact.currentlyInfected = val.reportedCases * 10;
   impact.infectionsByRequestedTime = impact.currentlyInfected * days(
-  val.periodType, val.timeToElapse);
+
+  val.periodType, val.timeToElapse
+  );
   impact.severeCasesByRequestedTime = Math.floor(0.15 * impact.infectionsByRequestedTime);
 
   impact.hospitalBedsByRequestedTime = hospitalBeds(
@@ -54,7 +56,9 @@ const estimator = (val) => {
 
   severeImpact.currentlyInfected = val.reportedCases * 50;
   severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * days(
-  val.periodType, val.timeToElapse);
+    
+  val.periodType, val.timeToElapse
+  );
   severeImpact.severeCasesByRequestedTime = Math.floor(0.15 * severeImpact.infectionsByRequestedTime);
 
   severeImpact.hospitalBedsByRequestedTime = hospitalBeds(
