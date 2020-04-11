@@ -1,5 +1,7 @@
-const impact = new Object();//
-const severeImpact = new Object();//
+const impact = {
+};
+const severeImpact = {
+};
 
 const days = (periodType, timeToElapse) => {
   let day;
