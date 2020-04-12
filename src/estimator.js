@@ -16,16 +16,16 @@ const days = function timeLP(periodType, timeToElapse) {
     default:
     day = time;
   }
-  const ans = (2 ** (Math.floor((day / 3))));
+  const ans = (2 ** (Math.trunc((day / 3))));
   return ans;
 };
 
 const hospitalBeds = function hospitalBd(severeCase, beds) {
-  const accualCapacity = Math.floor(0.90 * beds);
+  const accualCapacity = Math.trunc(0.90 * beds);
 
-  const occupiedBeds = Math.floor(0.65 * accualCapacity);
+  const occupiedBeds = Math.trunc(0.65 * accualCapacity);
 
-  const remainBedActualCapity = Math.floor(accualCapacity - occupiedBeds);
+  const remainBedActualCapity = Math.trunc(accualCapacity - occupiedBeds);
 
   const requiredBeds = (remainBedActualCapity - severeCase);
   return requiredBeds;
@@ -38,14 +38,14 @@ const estimator = (val) => {
   impact.infectionsByRequestedTime = impact.currentlyInfected * days(
     val.periodType, val.timeToElapse
   );
-  impact.severeCasesByRequestedTime = Math.floor(0.15 * impact.infectionsByRequestedTime);
+  impact.severeCasesByRequestedTime = Math.trunc(0.15 * impact.infectionsByRequestedTime);
 
   impact.hospitalBedsByRequestedTime = hospitalBeds(
     impact.severeCasesByRequestedTime, val.totalHospitalBeds
   );
 
-  impact.casesForICUByRequestedTime = Math.floor(0.05 * impact.infectionsByRequestedTime);
-  impact.casesForVentilatorsByRequestedTime = Math.floor(0.02 * impact.infectionsByRequestedTime);
+  impact.casesForICUByRequestedTime = Math.trunc(0.05 * impact.infectionsByRequestedTime);
+  impact.casesForVentilatorsByRequestedTime = Math.trunc(0.02 * impact.infectionsByRequestedTime);
 
   impact.dollarsInFlight = incomeLost(
     impact.infectionsByRequestedTime,
@@ -57,16 +57,16 @@ const estimator = (val) => {
   severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * days(
     val.periodType, val.timeToElapse
   );
-  severeImpact.severeCasesByRequestedTime = Math.floor(
+  severeImpact.severeCasesByRequestedTime = Math.trunc(
   0.15 * severeImpact.infectionsByRequestedTime
   );
   severeImpact.hospitalBedsByRequestedTime = hospitalBeds(
     severeImpact.severeCasesByRequestedTime, val.totalHospitalBeds
   );
-  severeImpact.casesForICUByRequestedTime = Math.floor(
+  severeImpact.casesForICUByRequestedTime = Math.trunc(
   0.05 * severeImpact.infectionsByRequestedTime
   );
-  severeImpact.casesForVentilatorsByRequestedTime = Math.floor(
+  severeImpact.casesForVentilatorsByRequestedTime = Math.trunc(
   0.02 * severeImpact.infectionsByRequestedTime
   );
   severeImpact.dollarsInFlight = incomeLost(
