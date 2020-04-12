@@ -25,7 +25,15 @@ const hospitalBeds = function hospitalBd(severeCase, beds) {
 };
 
 const incomeLost = function incu(infected, income, pop, time) {
-  return Math.trunc((infected * pop * income) / (time));
+  let day;
+  if (periodType === 'months') {
+    day = time * 30;
+  } else if (periodType === 'weeks') {
+    day = time * 7;
+  } else {
+    day = time;
+  }
+  return Math.trunc((infected * pop * income) / (day));
 };
 
 const estimator = (val) => {
