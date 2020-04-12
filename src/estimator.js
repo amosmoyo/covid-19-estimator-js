@@ -21,9 +21,9 @@ const days = function timeLP(periodType, timeToElapse) {
 };
 
 const hospitalBeds = function hospitalBd(severeCase, beds) {
-  const occupiedBeds = Math.floor(0.65 * beds);
-
   const accualCapacity = Math.floor(0.90 * beds);
+
+  const occupiedBeds = Math.floor(0.65 * accualCapacity);
 
   const remainBedActualCapity = Math.floor(accualCapacity - occupiedBeds);
 
