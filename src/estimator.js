@@ -18,7 +18,7 @@ const days = function timeLP(periodType, timeToElapse) {
   }
   const ans = (2 ** (Math.floor((day / 3))));
   return ans;
-}
+};
 
 const hospitalBeds = function hospitalBd(severe, beds) {
   const occupiedBeds = Math.floor(0.65 * beds);
@@ -29,7 +29,7 @@ const hospitalBeds = function hospitalBd(severe, beds) {
 
   const requiredBeds = (severe - remainBedActualCapity);
   return requiredBeds;
-}
+};
 
 const incomeLost = (infected, time, income) => ((infected * time * income).toFixed(2));
 
