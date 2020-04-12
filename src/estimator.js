@@ -23,7 +23,7 @@ const days = function timeLP(periodType, timeToElapse) {
 const hospitalBeds = function hospitalBd(severeCase, beds) {
   const remainBedActualCapity = Math.trunc(0.35 * beds);
 
-  const requiredBeds = (remainBedActualCapity - severeCase);
+  const requiredBeds = ((remainBedActualCapity - severeCase) - 1);
   return requiredBeds;
 };
 
