@@ -24,7 +24,7 @@ const hospitalBeds = function hospitalBd(severeCase, beds) {
   const remainBedActualCapity = 0.35 * beds;
 
   const requiredBeds = (remainBedActualCapity - severeCase);
-  return requiredBeds;
+  return Math.trunc(requiredBeds);
 };
 
 const incomeLost = (infected, time, income) => ((infected * time * income).toFixed(2));
