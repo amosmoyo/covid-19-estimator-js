@@ -27,7 +27,7 @@ const hospitalBeds = function hospitalBd(severeCase, beds) {
   return Math.trunc(requiredBeds);
 };
 
-const incomeLost = (infected, time, income) => ((infected * time * income).toFixed(2));
+const incomeLost = (infected, time, income) => (Math.trunc((infected * time) / income));
 
 const estimator = (val) => {
   impact.currentlyInfected = val.reportedCases * 10;
