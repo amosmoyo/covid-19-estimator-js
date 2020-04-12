@@ -6,9 +6,9 @@ const severeImpact = {
 const days = function timeLP(periodType, timeToElapse) {
   let day;
   const time = timeToElapse;
-  if (periodType == 'months') {
+  if (periodType === 'months') {
     day = time * 30;
-  } else if (periodType == 'weeks') {
+  } else if (periodType === 'weeks') {
     day = time * 7;
   } else {
     day = time;
