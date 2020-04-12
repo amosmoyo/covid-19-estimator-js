@@ -24,7 +24,7 @@ const hospitalBeds = function hospitalBd(severeCase, beds) {
   return Math.trunc(requiredBeds);
 };
 
-const incomeLost = function incu(infected, income, pop, time) {
+const incomeLost = function incu(infected, income, pop, time, periodType) {
   let day;
   if (periodType === 'months') {
     day = time * 30;
@@ -54,7 +54,8 @@ const estimator = (val) => {
     impact.infectionsByRequestedTime,
     val.region.avgDailyIncomeInUSD,
     val.region.avgDailyIncomePopulation,
-    val.timeToElapse
+    val.timeToElapse,
+    val.periodType
   );
 
   severeImpact.currentlyInfected = val.reportedCases * 50;
@@ -77,7 +78,8 @@ const estimator = (val) => {
     severeImpact.infectionsByRequestedTime,
     val.region.avgDailyIncomeInUSD,
     val.region.avgDailyIncomePopulation,
-    val.timeToElapse
+    val.timeToElapse,
+    val.periodType
   );
 };
 
