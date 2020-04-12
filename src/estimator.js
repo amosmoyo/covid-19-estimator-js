@@ -3,7 +3,7 @@ const impact = {
 const severeImpact = {
 };
 
-function days(periodType, timeToElapse){
+const days =  function (periodType, timeToElapse) {
   let day;
   const time = timeToElapse;
   switch (periodType) {
@@ -20,7 +20,7 @@ function days(periodType, timeToElapse){
   return ans;
 }
 
-function hospitalBeds(severe, beds){
+const hospitalBeds = function (severe, beds) {
   const occupiedBeds = Math.floor(0.65 * beds);
 
   const accualCapacity = Math.floor(0.925 * beds);
