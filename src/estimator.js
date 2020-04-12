@@ -24,8 +24,8 @@ const hospitalBeds = function hospitalBd(severeCase, beds) {
   return Math.trunc(requiredBeds);
 };
 
-const incomeLost = function incu(infected, time, pop, income) {
-  return (Math.trunc((infected * pop * income) / time));
+const incomeLost = function incu(infected, income, pop, time) {
+  return Math.trunc((infected * pop * income) / (time));
 };
 
 const estimator = (val) => {
@@ -44,9 +44,9 @@ const estimator = (val) => {
 
   impact.dollarsInFlight = incomeLost(
     impact.infectionsByRequestedTime,
-    val.timeToElapse,
+    val.region.avgDailyIncomeInUSD,
     val.region.avgDailyIncomePopulation,
-    val.region.avgDailyIncomeInUSD
+    val.timeToElapse
   );
 
   severeImpact.currentlyInfected = val.reportedCases * 50;
@@ -67,9 +67,9 @@ const estimator = (val) => {
   );
   severeImpact.dollarsInFlight = incomeLost(
     severeImpact.infectionsByRequestedTime,
-    val.timeToElapse,
+    val.region.avgDailyIncomeInUSD,
     val.region.avgDailyIncomePopulation,
-    val.region.avgDailyIncomeInUSD
+    val.timeToElapse
   );
 };
 
